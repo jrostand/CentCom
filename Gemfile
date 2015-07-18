@@ -19,6 +19,7 @@ gem 'thin'
 # gem 'oj'
 # gem 'rabl'
 
+gem 'sprockets'
 gem 'slim'
 gem 'sass'
 gem 'coffee-script'
