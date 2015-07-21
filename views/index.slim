@@ -3,11 +3,32 @@
   - if @stories.empty?
     h3 There is nothing new under the sun
   - else
-    .ui.inverted.accordion
+    .ui.inverted.accordion.stories
       - @stories.each do |story|
         .title
           i.dropdown.icon
           == story.title
         .content== story.content
-.black.column
-.black.column
+
+.column
+  .d3clock
+
+.padded.column.clock
+  h2
+    | Today is
+    span.weekday< Day
+    | ,
+    span.day<> 00
+    span.month Month
+
+  h2.local-time
+    | Local
+    span.local-hour< 00
+    | :
+    span.local-minute 00
+
+  h2.utc-time
+    | UTC
+    span.utc-hour< 00
+    | :
+    span.utc-minute 00
