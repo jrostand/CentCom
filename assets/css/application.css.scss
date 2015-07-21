@@ -1,0 +1,19 @@
+@import 'colors';
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&subset=latin,latin-ext);
+
+*:not(.fa):not(.icon) {
+  font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
+}
+
+body {
+  background: $base00;
+  color: $base07;
+}
+
+.container:not(.ui) {
+  padding: 3%;
+}
+
+.rss-reader {
+  border: 2px solid $base09;
+}
