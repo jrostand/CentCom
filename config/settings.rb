@@ -10,5 +10,15 @@ module CentCom
         end
       end
     end
+
+    def self.method_missing(name, *args, &block)
+      raise SettingUndefinedError, "Tried to fetch #{name} from settings but it was undefined"
+    end
+
+    def initialize
+      raise NoMethodError, "This class is not designed to be instantiated"
+    end
   end
+
+  class SettingUndefinedError < NoMethodError; end
 end
