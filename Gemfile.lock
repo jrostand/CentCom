@@ -108,6 +108,7 @@ DEPENDENCIES
   dotenv
   feedjira
   foreman
+  loofah
   pg
   pry
   rubocop
