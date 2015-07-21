@@ -1,14 +1,12 @@
-class Feed < Sequel::Model
+class Author < Sequel::Model
   include CentCom::Timestamps
   include CentCom::Validations
 
   one_to_many :stories
 
-  many_to_one :feed_category, key: :category_id
-
   def validate
     super
-    validates_presence [:category_id, :name, :feed_url, :url]
+    validates_presence [:name]
     validates_unique :name
   end
 end
