@@ -11,24 +11,15 @@
         .content== story.content
 
 .column
-  .d3clock
 
-.padded.column.clock
-  h2
-    | Today is
-    span.weekday< Day
-    | ,
-    span.day<> 00
-    span.month Month
+.column.clocks
+  h2.calendar
 
-  h2.local-time
-    | Local
-    span.local-hour< 00
-    | :
-    span.local-minute 00
+  .ui.two.column.grid
+    .column
+      .local-clock
+      h2.local-time
 
-  h2.utc-time
-    | UTC
-    span.utc-hour< 00
-    | :
-    span.utc-minute 00
+    .column
+      .utc-clock
+      h2.utc-time

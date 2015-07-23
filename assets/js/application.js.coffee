@@ -1,75 +1,42 @@
 #= require_tree .
 
-zerofill = (num) ->
-  pad = '00'
-  (pad + num).slice -pad.length
+calendar = new Calendar(
+  container: '.calendar'
+  lang: 'fr'
+)
 
-setClock = (which, time) ->
-  parts = {}
+localClock = new Clock(
+  svgBox: '.local-clock'
+  diameter: 150
+  borderColor: '#a1b56c'
+  handColor:
+    hours: '#ab4642'
+    minutes: '#f7ca88'
+)
 
-  switch which
-    when 'utc'
-      parts =
-        hours: zerofill time.getUTCHours()
-        minutes: zerofill time.getUTCMinutes()
-    when 'local'
-      parts =
-        hours: zerofill time.getHours()
-        minutes: zerofill time.getMinutes()
+localDigi = new DigitalClock(
+  container: '.local-time'
+)
 
-  $(".#{which}-hour").text parts['hours']
-  $(".#{which}-minute").text parts['minutes']
+utcClock = new Clock(
+  svgBox: '.utc-clock'
+  diameter: 150
+  utc: true
+)
 
-setDate = (time) ->
-  parts =
-    day: time.getDate()
-    weekday: time.getDay()
-    month: time.getMonth()
-
-  months = [
-    'January'
-    'February'
-    'March'
-    'April'
-    'May'
-    'June'
-    'July'
-    'August'
-    'September'
-    'October'
-    'November'
-    'December'
-  ]
-
-  days = [
-    'Sunday'
-    'Monday'
-    'Tuesday'
-    'Wednesday'
-    'Thursday'
-    'Friday'
-    'Saturday'
-  ]
-
-  $(".weekday").text days[parts['weekday']]
-  $(".month").text months[parts['month']]
-  $(".day").text parts['day']
-
-clock = new Clock(
-  svgBox: '.d3clock'
-  diameter: 250
+utcDigi = new DigitalClock(
+  container: '.utc-time'
+  utc: true
 )
 
 updateClocks = ->
-  time = new Date()
-  setClock 'local', time
-  setClock 'utc', time
-  setDate time
-  clock.update()
+  calendar.update()
+  localClock.update()
+  localDigi.update()
+  utcClock.update()
+  utcDigi.update()
 
 $ ->
   $('.ui.accordion').accordion()
-
-  updateClocks()
 
   setInterval updateClocks, 5000

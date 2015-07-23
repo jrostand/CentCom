@@ -1,4 +1,4 @@
-class Clock
+window.Clock = class Clock
   constructor: (options) ->
     @options = $.extend(true, {
       svgBox: '.clock'
@@ -114,5 +114,3 @@ class Clock
       .attr('stroke', (d) => @options.handColor[d.unit])
       .attr('stroke-width', 2)
       .attr('fill', 'none')
-
-window.Clock = Clock
