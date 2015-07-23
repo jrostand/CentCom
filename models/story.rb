@@ -11,4 +11,8 @@ class Story < Sequel::Model
     super
     validates_presence [:author_id, :title, :content, :url, :published_at]
   end
+
+  def_dataset_method :unread do
+    where(read: false).order(Sequel.desc(:published_at))
+  end
 end

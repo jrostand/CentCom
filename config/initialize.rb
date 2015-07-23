@@ -7,4 +7,4 @@ Dir['./config/modules/*.rb'].each do |file|
   require file
 end
 
-Dir['./{models,workers}/**/*.rb'].each { |model| require model }
+Dir['./{lib/helpers,models,routes,workers}/**/*.rb'].each { |model| require model }
