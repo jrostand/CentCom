@@ -10,8 +10,30 @@ body {
   color: $base07;
 }
 
+.categories {
+  border: 2px solid $base16-blue;
+
+  &.index {
+    .list {
+      text-align: left;
+    }
+  }
+}
+
 .container:not(.ui) {
   padding: 3%;
+}
+
+.list-actions {
+  text-align: right;
+
+  .new-button {
+    background-color: $base16-green;
+
+    &:hover {
+      background-color: darken($base16-green, 10%);
+    }
+  }
 }
 
 .rss-reader {
