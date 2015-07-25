@@ -1,0 +1,16 @@
+{
+  "name": "centcom",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Central Command personal dashboard",
+  "author": "jrostand",
+  "devDependencies": {
+    "coffeelint-stylish": "~0.1.2",
+    "del": "~1.2.0",
+    "gulp": "~3.9.0",
+    "gulp-coffee": "~2.3.1",
+    "gulp-coffeelint": "~0.5.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-sass": "~2.0.4"
+  }
+}
