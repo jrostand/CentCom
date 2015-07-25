@@ -3,7 +3,6 @@ gulp = require 'gulp'
 coffee = require 'gulp-coffee'
 coffeeLint = require 'gulp-coffeelint'
 concat = require 'gulp-concat'
-# del = require 'del'
 lintStylish = require 'coffeelint-stylish'
 sass = require 'gulp-sass'
 
