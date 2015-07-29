@@ -1,0 +1,22 @@
+{
+  "name": "dashboard",
+  "version": "0.0.0",
+  "authors": [
+    "jrostand"
+  ],
+  "description": "Central Command personal dashboard",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.3.0",
+    "d3": "~3.5.6"
+  }
+}
