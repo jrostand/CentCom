@@ -1,0 +1,6 @@
+- unless category.errors.empty?
+  == partial 'common/form_error', locals: { errors: category.errors }
+.field
+  input(name='category[name]' placeholder='Name' type='text' value="#{category.name}")
+.actions
+  input.ui.submit.button.submit-button(type='submit' value='Save')

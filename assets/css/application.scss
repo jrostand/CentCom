@@ -1,5 +1,8 @@
-@import 'colors';
+// Vendor includes
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&subset=latin,latin-ext);
+
+// Local includes
+@import 'colors';
 
 *:not(.fa):not(.icon) {
   font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
@@ -24,11 +27,19 @@ body {
   padding: 3%;
 }
 
-.list-actions {
+.ui.error {
+  text-align: left;
+}
+
+.actions {
   text-align: right;
 
   .new-button {
     background-color: $base16-green;
+
+    &:focus {
+      background-color: lighten($base16-green, 10%);
+    }
 
     &:hover {
       background-color: darken($base16-green, 10%);
