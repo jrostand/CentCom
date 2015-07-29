@@ -1,0 +1,47 @@
+.admin-bar {
+  color: $base00;
+  font-size: 10px;
+  line-height: 10px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      padding: 4px;
+
+      &:hover {
+        background-color: $base00;
+        color: $base16-red;
+
+        a {
+          color: $base16-red;
+        }
+      }
+    }
+  }
+
+  ul.right-links {
+    float: right;
+  }
+
+  a {
+    color: $base00;
+  }
+
+  &:hover {
+    background-color: $base16-red;
+
+    li.no-hover,
+    li.no-hover:hover {
+      background-color: $base00;
+      color: $base16-blue;
+      cursor: default;
+    }
+  }
+}

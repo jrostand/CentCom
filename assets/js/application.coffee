@@ -39,4 +39,6 @@ updateClocks = ->
 $ ->
   $('.ui.accordion').accordion()
 
+  $('.admin-bar .right-links').hide() if document.location.pathname is '/'
+
   setInterval updateClocks, 5000

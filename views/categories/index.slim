@@ -1,0 +1,20 @@
+.column.categories.index
+  h1 Feed Categories
+  - if @categories.empty?
+    h2 No categories
+  - else
+    - @categories.each do |category|
+      .ui.inverted.list
+        .item: .content: .header
+          h3
+            | &#8226;
+            a(href="/categories/#{category.id}/edit")=< category.name
+
+  .actions
+    a.ui.button.new-button(href="/categories/new") New
+
+.spacer.column
+
+.spacer.column
+
+.spacer.column

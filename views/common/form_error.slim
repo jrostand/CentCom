@@ -1,0 +1,5 @@
+.ui.error.message
+  .header Form Error
+  ul
+    - errors.full_messages.each do |msg|
+      li= msg
