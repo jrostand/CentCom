@@ -24,10 +24,7 @@ gem 'thin'
 # gem 'rabl'
 
 # Assets
-gem 'sprockets'
 gem 'slim'
-gem 'sass'
-gem 'coffee-script'
 
 # RSS feeds
 gem 'feedjira'
