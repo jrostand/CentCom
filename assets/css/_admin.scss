@@ -1,0 +1,9 @@
+.categories {
+  border: 2px solid $base16-blue;
+
+  &.index {
+    .list {
+      text-align: left;
+    }
+  }
+}

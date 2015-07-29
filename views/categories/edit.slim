@@ -1,10 +1,10 @@
-.spacer.column
-
 .column.categories.new
   h1 Edit Category
 
   form.ui.inverted.error.form(method='POST' action="/categories/#{@category.id}/edit")
     == partial 'categories/_form', locals: { category: @category }
+
+.spacer.column
 
 .spacer.column
 

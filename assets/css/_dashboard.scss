@@ -1,0 +1,29 @@
+.clocks {
+  border: 2px solid $base16-violet;
+
+  h2 {
+    padding-bottom: 15px;
+  }
+
+  .weekday {
+    color: $base16-blue;
+  }
+
+  .day,
+  .month {
+    color: $base16-yellow;
+  }
+
+  .local-time,
+  .utc-time {
+    margin-top: 5px;
+  }
+
+  .local-time {
+    color: $base16-green;
+  }
+
+  .utc-time {
+    color: $base16-red;
+  }
+}

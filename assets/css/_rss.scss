@@ -1,0 +1,33 @@
+.rss-reader {
+  border: 2px solid $base16-green;
+
+  .stories .content {
+    text-align: left;
+
+    max-height: 500px;
+    overflow: auto;
+
+    a {
+      color: $base16-blue;
+
+      &:hover {
+        background: $base16-blue;
+        color: $base00;
+      }
+    }
+
+    code {
+      color: $base16-yellow;
+    }
+
+    .chat {
+      background: $base01;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

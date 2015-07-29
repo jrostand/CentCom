@@ -4,6 +4,12 @@
 // Local includes
 @import 'colors';
 
+@import 'admin';
+@import 'admin_bar';
+@import 'dashboard';
+@import 'form';
+@import 'rss';
+
 *:not(.fa):not(.icon) {
   font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
 }
@@ -13,100 +19,10 @@ body {
   color: $base07;
 }
 
-.categories {
-  border: 2px solid $base16-blue;
-
-  &.index {
-    .list {
-      text-align: left;
-    }
-  }
-}
-
 .container:not(.ui) {
   padding: 3%;
 }
 
 .ui.error {
   text-align: left;
-}
-
-.actions {
-  text-align: right;
-
-  .new-button {
-    background-color: $base16-green;
-
-    &:focus {
-      background-color: lighten($base16-green, 10%);
-    }
-
-    &:hover {
-      background-color: darken($base16-green, 10%);
-    }
-  }
-}
-
-.rss-reader {
-  border: 2px solid $base16-green;
-
-  .stories .content {
-    text-align: left;
-
-    max-height: 500px;
-    overflow: auto;
-
-    a {
-      color: $base16-blue;
-
-      &:hover {
-        background: $base16-blue;
-        color: $base00;
-      }
-    }
-
-    code {
-      color: $base16-yellow;
-    }
-
-    .chat {
-      background: $base01;
-      margin-bottom: 10px;
-      padding: 5px;
-    }
-
-    img {
-      max-width: 100%;
-    }
-  }
-}
-
-.clocks {
-  border: 2px solid $base16-violet;
-
-  h2 {
-    padding-bottom: 15px;
-  }
-
-  .weekday {
-    color: $base16-blue;
-  }
-
-  .day,
-  .month {
-    color: $base16-yellow;
-  }
-
-  .local-time,
-  .utc-time {
-    margin-top: 5px;
-  }
-
-  .local-time {
-    color: $base16-green;
-  }
-
-  .utc-time {
-    color: $base16-red;
-  }
 }
