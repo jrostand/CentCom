@@ -3,6 +3,7 @@ require './config/initialize'
 set :root, __dir__
 
 helpers JsonRender
+helpers Partial
 
 configure :development do
   use BetterErrors::Middleware

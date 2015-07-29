@@ -1,0 +1,27 @@
+.actions {
+  text-align: right;
+
+  .new-button {
+    background-color: $base16-green;
+
+    &:focus {
+      background-color: lighten($base16-green, 10%);
+    }
+
+    &:hover {
+      background-color: darken($base16-green, 10%);
+    }
+  }
+
+  .submit-button {
+    background-color: $base16-blue;
+
+    &:focus {
+      background-color: lighten($base16-blue, 10%);
+    }
+
+    &:hover {
+      background-color: darken($base16-blue, 10%);
+    }
+  }
+}
