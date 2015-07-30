@@ -5,10 +5,10 @@
   - else
     .ui.inverted.accordion.stories
       - @stories.each do |story|
-        .title
+        .title data-story-id=story.id
           i.dropdown.icon
           == story.title
-        .content
+        .content data-story-id=story.id
           == story.content
           p.read-more-link: a href=story.url Read more
 
