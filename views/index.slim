@@ -8,7 +8,9 @@
         .title
           i.dropdown.icon
           == story.title
-        .content== story.content
+        .content
+          == story.content
+          p.read-more-link: a href=story.url Read more
 
 .column
 
