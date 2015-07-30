@@ -36,8 +36,25 @@ updateClocks = ->
   utcClock.update()
   utcDigi.update()
 
+onStoryOpen = ->
+  data = $(@).data()
+  title = $(@).parent().find ".title.active[data-story-id=#{data.storyId}]"
+
+  $.ajax
+    type: 'POST'
+    url: "/api/stories/#{data.storyId}/edit"
+    data: story: read: true
+    success: ->
+      title
+        .animate({ color: '#a1b56c' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+    error: ->
+      title
+        .animate({ color: '#ab4642' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+
 $ ->
-  $('.ui.accordion').accordion()
+  $('.ui.accordion.stories').accordion onOpen: onStoryOpen
 
   $('.admin-bar .right-links').hide() if document.location.pathname is '/'
 
