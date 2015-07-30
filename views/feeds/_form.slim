@@ -1,0 +1,20 @@
+- unless feed.errors.empty?
+  == partial 'common/form_error', locals: { errors: feed.errors }
+
+.field: input(name='feed[name]' placeholder='Name' type='text' value="#{feed.name}")
+
+.field: input(name='feed[url]' placeholder='URL' type='text' value="#{feed.url}")
+
+.field: input(name='feed[feed_url]' placeholder='RSS URL' type='text' value="#{feed.feed_url}")
+
+.field
+  select(name='feed[category_id]')
+    option(value="")
+    - categories.each do |cat|
+      - if feed.category_id == cat.id
+        option(value="#{cat.id}" selected='selected')= cat.name
+      - else
+        option(value="#{cat.id}")= cat.name
+
+.actions
+  input.ui.submit.button.submit-button(type='submit' value='Save')
