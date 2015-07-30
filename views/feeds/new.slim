@@ -1,0 +1,11 @@
+.column.feeds.form.new
+  h1 New Feed
+
+  form.ui.inverted.error.form(method='POST' action='/feeds/new')
+    == partial 'feeds/_form', locals: { feed: @feed, categories: @categories }
+
+.spacer.column
+
+.spacer.column
+
+.spacer.column
