@@ -1,6 +1,10 @@
 .rss-reader {
   border: 2px solid $base16-green;
 
+  a.rss-refresh {
+    color: $base07;
+  }
+
   .stories .content {
     text-align: left;
 
