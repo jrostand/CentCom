@@ -1,0 +1,13 @@
+.eight.wide.column.rss-reader
+  h1: a.rss-refresh(href='#' title='Click to refresh') Latest News
+  - if @stories.empty?
+    h3 There is nothing new under the sun
+  - else
+    .ui.inverted.accordion.stories
+      - @stories.each do |story|
+        .title data-story-id=story.id
+          i.dropdown.icon
+          == "#{story.feed.name} | #{story.title}"
+        .content data-story-id=story.id
+          == story.content
+          p.read-more-link: a href=story.url Read more
