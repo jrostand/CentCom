@@ -7,7 +7,7 @@
       - @stories.each do |story|
         .title data-story-id=story.id
           i.dropdown.icon
-          == story.title
+          == "#{story.feed.name} | #{story.title}"
         .content data-story-id=story.id
           == story.content
           p.read-more-link: a href=story.url Read more
