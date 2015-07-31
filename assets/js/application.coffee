@@ -36,7 +36,9 @@ updateClocks = ->
   utcClock.update()
   utcDigi.update()
 
-rssRefresh = ->
+rssRefresh = (event) ->
+  event.preventDefault()
+
   heading = $('.rss-reader h1 a')
 
   $.ajax
