@@ -31,7 +31,7 @@ class FeedReaderWorker
         title: article.title,
         content: expand_absolute_urls(content, feed.url),
         published_at: article.published,
-        url: article.url
+        url: article.url || feed.url
       )
     end
   end
