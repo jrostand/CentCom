@@ -1,9 +1,15 @@
-.categories {
+.column.index {
   border: 2px solid $base16-blue;
 
-  &.index {
-    .list {
-      text-align: left;
-    }
+  .list {
+    text-align: left;
   }
+
+  ul.no-bullets {
+    list-style: none;
+  }
+}
+
+.column.form {
+  border: 2px solid $base16-orange;
 }

@@ -1,14 +1,4 @@
-.eight.wide.column.rss-reader
-  h1 Latest News
-  - if @stories.empty?
-    h3 There is nothing new under the sun
-  - else
-    .ui.inverted.accordion.stories
-      - @stories.each do |story|
-        .title
-          i.dropdown.icon
-          == story.title
-        .content== story.content
+== partial 'modules/rss'
 
 .column
 

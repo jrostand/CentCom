@@ -6,14 +6,22 @@ class FeedReaderWorker
   def perform(id)
     feed = Feed[id]
 
-    latest_story_time = Time.parse feed.latest_story.published_at
+    latest_story_time = if feed.latest_story
+                          Time.parse feed.latest_story.published_at
+                        else
+                          Time.parse '2000-01-01 00:00:00Z'
+                        end
 
     stories = feed_stories feed
 
     stories.each do |article|
       next if article.published <= latest_story_time
 
-      author_id = Author.find_or_create(name: article.author).id
+      author_id = if article.author
+                    Author.find_or_create(name: article.author).id
+                  else
+                    Author.find_or_create(name: feed.name).id
+                  end
 
       content = extract_story_content article
 
@@ -23,7 +31,7 @@ class FeedReaderWorker
         title: article.title,
         content: expand_absolute_urls(content, feed.url),
         published_at: article.published,
-        url: article.url
+        url: article.url || feed.url
       )
     end
   end

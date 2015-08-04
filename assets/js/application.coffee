@@ -36,8 +36,44 @@ updateClocks = ->
   utcClock.update()
   utcDigi.update()
 
+rssRefresh = (event) ->
+  event.preventDefault()
+
+  heading = $('.rss-reader h1 a')
+
+  $.ajax
+    type: 'POST'
+    url: '/api/feeds/refresh'
+    success: ->
+      heading
+        .animate({ color: '#a1b56c' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+    error: ->
+      heading
+        .animate({ color: '#ab4642' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+
+onStoryOpen = ->
+  data = $(@).data()
+  title = $(@).parent().find ".title.active[data-story-id=#{data.storyId}]"
+
+  $.ajax
+    type: 'POST'
+    url: "/api/stories/#{data.storyId}/edit"
+    data: story: read: true
+    success: ->
+      title
+        .animate({ color: '#a1b56c' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+    error: ->
+      title
+        .animate({ color: '#ab4642' }, 200)
+        .animate({ color: '#f8f8f8' }, 200)
+
 $ ->
-  $('.ui.accordion').accordion()
+  $('.ui.accordion.stories').accordion onOpen: onStoryOpen
+
+  $('.rss-refresh').bind 'click', rssRefresh
 
   $('.admin-bar .right-links').hide() if document.location.pathname is '/'
 

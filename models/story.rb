@@ -13,6 +13,6 @@ class Story < Sequel::Model
   end
 
   def_dataset_method :unread do
-    where(read: false).order(Sequel.desc(:published_at))
+    eager(:feed).where(read: false).order(Sequel.desc(:published_at))
   end
 end
