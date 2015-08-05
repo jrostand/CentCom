@@ -29,6 +29,8 @@ utcDigi = new DigitalClock(
   utc: true
 )
 
+weather = new Weather()
+
 updateClocks = ->
   calendar.update()
   localClock.update()
