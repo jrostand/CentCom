@@ -9,8 +9,9 @@
 @import 'dashboard';
 @import 'form';
 @import 'rss';
+@import 'weather';
 
-*:not(.fa):not(.icon) {
+*:not(i) {
   font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
 }
 
