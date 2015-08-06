@@ -23,9 +23,9 @@ window.DigitalClock = class Clock
   update: ->
     parts = @getTime()
 
-    $("#{@options.container} .hours").text @zerofill parts.hours
-    $("#{@options.container} .minutes").text @zerofill parts.minutes
-    $("#{@options.container} .seconds").text(@zerofill parts.seconds) if @options.showSeconds
+    $("#{@options.container} .hours").text Utils.zerofill parts.hours
+    $("#{@options.container} .minutes").text Utils.zerofill parts.minutes
+    $("#{@options.container} .seconds").text(Utils.zerofill parts.seconds) if @options.showSeconds
     $("#{@options.container} .ampm").text(parts['ampm'])unless @options.twentyFour
 
   getTime: ->
@@ -49,7 +49,3 @@ window.DigitalClock = class Clock
         parts.hours = (parts.hours % 12)
 
     return parts
-
-  zerofill: (num) ->
-    pad = '00'
-    (pad + num).slice -2

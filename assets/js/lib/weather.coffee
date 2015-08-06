@@ -9,12 +9,30 @@ window.Weather = class Weather
     @update()
 
   init: ->
-    template = '<i class="current-conditions fa fa-question-circle"></i>'
+    template = '<div class="ui grid">
+      <div class="five wide column">
+        <i class="current-conditions"></i>
+      </div>
+      <div class="three wide column sunrise">
+        <i class="icon-sunrise"></i>
+        <p class="time"></p>
+      </div>
+      <div class="three wide column sunset">
+        <i class="icon-sunset"></i>
+        <p class="time"></p>
+      </div>
+      <div class="five wide column"></div>
+    </div>'
 
     $(@options.container).append template
 
   update: ->
-    @fetchWeather().then @setWeather, @setError
+    _expiry = new Date(parseInt(Cache.get('forecast_expiry'))).getTime()
+
+    if Date.now() >= _expiry
+      @fetchWeather().then @setWeather, @setError
+    else
+      @setWeather(JSON.parse(Cache.get('forecast')), false)
 
   fetchWeather: ->
     new Promise (resolve, reject) ->
@@ -31,24 +49,48 @@ window.Weather = class Weather
 
       req.send()
 
-  setIcon: (conditions) ->
+  setConditionsIcon: ->
     icon = $('i.current-conditions')
-    iconClasses = icon.attr('class').replace('current-conditions ', '')
-    icon.removeClass iconClasses
-    conditionsIcon = @translateIcon conditions.currently.icon
-    icon.addClass "wi wi-#{conditionsIcon}"
+    icon.removeClass()
+    icon.addClass "current-conditions #{@translateIcon @forecast.currently.icon}"
 
-  setWeather: (conditions) =>
-    console.log 'COND', conditions
-    @setIcon conditions
+  setSunriseSunset: ->
+    sunrise = $('.sunrise .time')
+    sunset = $('.sunset .time')
+    _today = @forecast.daily.data[0]
+
+    sunriseTime = new Date(_today.sunriseTime * 1000)
+    sunsetTime = new Date(_today.sunsetTime * 1000)
+
+    sunrise.text "#{Utils.zerofill sunriseTime.getHours()}:#{Utils.zerofill sunriseTime.getMinutes()}"
+    sunset.text "#{Utils.zerofill sunsetTime.getHours()}:#{Utils.zerofill sunsetTime.getMinutes()}"
+
+  setWeather: (conditions, updateCache = true) =>
+    @forecast = conditions
+    @updateCache() if updateCache is true
+
+    @setConditionsIcon()
+    @setSunriseSunset()
 
   setError: (err) =>
     $(@options.container).removeClass('weather-ok weather-error').addClass 'weather-error'
 
   translateIcon: (condition) ->
     switch condition
-      when 'clear-day' then 'day-sunny'
-      when 'clear-night' then 'night-clear'
-      when 'partly-cloudy-day' then 'day-cloudy'
-      when 'partly-cloudy-night' then 'night-cloudy'
-      else condition
+      when 'clear-day' then 'icon-sun'
+      when 'clear-night' then 'icon-moon'
+      when 'cloudy' then 'icon-cloud'
+      when 'fog' then 'icon-basecloud icon-mist'
+      when 'hail' then 'icon-hail'
+      when 'partly-cloudy-day' then 'icon-cloud icon-sunny'
+      when 'partly-cloudy-night' then 'icon-cloud icon-night'
+      when 'rain' then 'icon-basecloud icon-showers'
+      when 'sleet' then 'icon-basecloud icon-sleet'
+      when 'snow' then 'icon-basecloud icon-snow'
+      when 'thunderstorm' then 'icon-basecloud icon-thunder'
+      else 'fa fa-alert'
+
+  updateCache: ->
+    _newExpiry = new Date(Date.now() + (5 * 60 * 1000)).getTime()
+    Cache.set 'forecast_expiry', _newExpiry
+    Cache.set 'forecast', JSON.stringify(@forecast)
