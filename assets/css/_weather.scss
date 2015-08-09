@@ -10,43 +10,69 @@
 }
 
 .weather {
-  .current-conditions {
-    font-size: 110px;
-    line-height: 110px;
+  p {
+    margin-bottom: 0;
+  }
 
-    &.icon-basecloud:before,
-    &.icon-cloud:before {
-      color: $base04;
-    }
-
-    &.icon-moon:before,
-    &.icon-night:after {
-      color: $base16-blue;
-    }
-
-    &.icon-sun:before,
-    &.icon-sunny:after {
-      color: $base16-orange;
+  .currently {
+    .icon {
+      font-size: 110px;
+      line-height: 110px;
     }
   }
 
-  .sunrise,
-  .sunset {
-    font-size: 18px;
+  .forecast-icon {
+    list-style: none;
+  }
 
-    i {
+  .forecast {
+    .forecast-icon {
       font-size: 40px;
     }
+
+    .temps {
+      font-size: 18px;
+    }
   }
 
-  .sunrise {
+  .numbers {
     color: $base16-yellow;
+    padding-top: 10px;
+
+    .qnh {
+      padding-top: 10px;
+    }
+
+    .temp {
+      font-size: 25px;
+    }
   }
 
-  .sunset {
-    color: $base16-orange;
+  .temps {
+    font-size: 25px;
+    padding-top: 10px;
+
+    .high {
+      color: $base16-red;
+    }
+
+    .low {
+      color: $base16-blue;
+    }
   }
 
-  .alerts {
+  .wind {
+    font-size: 16px;
+    padding-top: 11px;
+
+    .direction {
+      color: $base16-violet;
+    }
+
+    .speed {
+      &.high { color: $base16-red; }
+      &.med { color: $base16-orange; }
+      &.low { color: $base16-green; }
+    }
   }
 }
