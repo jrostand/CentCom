@@ -1,4 +1,4 @@
 window.Utils = class Utils
-  @zerofill: (num) ->
-    pad = '00'
-    (pad + num).slice -2
+  @zerofill: (num, length = 2) ->
+    pad = Array(length).fill('0').join()
+    (pad + num).slice length * -1
