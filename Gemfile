@@ -30,6 +30,9 @@ gem 'slim'
 gem 'feedjira'
 gem 'loofah'
 
+# Weather
+gem 'forecast_io'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

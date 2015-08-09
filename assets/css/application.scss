@@ -3,14 +3,16 @@
 
 // Local includes
 @import 'colors';
+@import 'forecast_font';
 
 @import 'admin';
 @import 'admin_bar';
 @import 'dashboard';
 @import 'form';
 @import 'rss';
+@import 'weather';
 
-*:not(.fa):not(.icon) {
+*:not(i) {
   font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
 }
 

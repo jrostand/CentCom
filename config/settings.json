@@ -3,5 +3,8 @@
   "db_port": 5432,
   "db_user": "centcom",
   "db_password": "moctnec",
-  "db_database": "centcom_dev"
+  "db_database": "centcom_dev",
+  "forecast_api_key": "e3cc57e4d0f74a28310c10621c4299f0",
+  "forecast_lat": 41.93962,
+  "forecast_long": -87.66199
 }
