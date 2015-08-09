@@ -1,5 +1,3 @@
-#= require_tree .
-
 calendar = new Calendar(
   container: '.calendar'
   lang: 'fr'
@@ -28,6 +26,8 @@ utcDigi = new DigitalClock(
   container: '.utc-time'
   utc: true
 )
+
+weather = new Weather()
 
 updateClocks = ->
   calendar.update()
@@ -76,5 +76,7 @@ $ ->
   $('.rss-refresh').bind 'click', rssRefresh
 
   $('.admin-bar .right-links').hide() if document.location.pathname is '/'
+
+  setInterval weather.update, 1000 * 60 * 5
 
   setInterval updateClocks, 5000

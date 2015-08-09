@@ -17,6 +17,7 @@ sources =
   coffee:
     app: 'assets/js/*.coffee'
     lib: 'assets/js/lib/*.coffee'
+  fonts: 'assets/fonts/*'
   scss: 'assets/css/*.scss'
 
 gulp.task 'bower:css', ->
@@ -44,6 +45,10 @@ gulp.task 'coffee', ->
     .pipe(concat('all.js'))
     .pipe(gulp.dest build.js)
 
+gulp.task 'fonts', ->
+  gulp.src(sources.fonts)
+    .pipe(gulp.dest build.fonts)
+
 gulp.task 'sass', ->
   gulp.src(sources.scss)
     .pipe(sass().on 'error', sass.logError)
@@ -52,6 +57,7 @@ gulp.task 'sass', ->
 gulp.task 'watch', ->
   gulp.watch 'bower_components/', ['bower']
   gulp.watch [sources.coffee.app, sources.coffee.lib], ['coffee']
+  gulp.watch sources.fonts, ['fonts']
   gulp.watch sources.scss, ['sass']
 
-gulp.task 'default', ['sass', 'coffee']
+gulp.task 'default', ['bower', 'sass', 'fonts', 'coffee']
