@@ -1,0 +1,3 @@
+refresh_feeds:
+  cron: '*/5 * * * *'
+  class: 'AllFeedsWorker'
