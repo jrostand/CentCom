@@ -10,6 +10,7 @@ gem 'sequel_pg', require: 'sequel'
 # Backbone
 gem 'sinatra'
 gem 'sidekiq'
+gem 'sidekiq-cron'
 
 # Runtime
 gem 'dotenv'
