@@ -61,7 +61,7 @@ window.Weather = class Weather
   update: ->
     _expiry = new Date(parseInt(Cache.get('forecast_expiry'))).getTime()
 
-    if Date.now() >= _expiry
+    if isNaN(_expiry) or Date.now() >= _expiry
       @fetchWeather().then @setWeather, @setError
     else
       @setWeather(JSON.parse(Cache.get('forecast')), false)
