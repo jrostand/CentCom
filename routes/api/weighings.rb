@@ -1,7 +1,8 @@
 post '/api/weighings/:token' do |token|
   if token == CentCom::Settings.incoming_token
     begin
-      Weighing.create params['weighing']
+      data = json_body(request)
+      Weighing.create data['weighing']
       render_json message: 'Weigh-in created'
     rescue
       status 400

@@ -2,6 +2,7 @@ require './config/initialize'
 
 set :root, __dir__
 
+helpers JsonBody
 helpers JsonRender
 helpers Partial
 
