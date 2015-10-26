@@ -1,15 +1,32 @@
-.rss-reader {
+#rss-module {
   border: 2px solid $base16-green;
+  flex: 0 1 48%;
+  margin: 1%;
+  max-height: 500px;
+  overflow: auto;
+  text-align: center;
 
-  a.rss-refresh {
+  h3 {
+    padding-bottom: 5px;
+  }
+
+  .rss-refresh {
     color: $base07;
   }
 
-  .stories .content {
-    text-align: left;
+  .rss-title {
+    font-weight: bold;
+    margin-top: 10px;
+  }
 
-    max-height: 500px;
-    overflow: auto;
+  .rss-article,
+  .rss-title {
+    margin-bottom: 5px;
+  }
+
+  .rss-body {
+    padding: 0 10px 10px 10px;
+    text-align: left;
 
     a {
       color: $base16-blue;
@@ -34,8 +51,17 @@
       max-width: 100%;
     }
 
-    .read-more-link {
+    .rss-links {
       text-align: right;
+
+      a {
+        margin-left: 10px;
+      }
+
+      .mark-read {
+        background: $base16-blue;
+        color: $base00;
+      }
     }
   }
 }

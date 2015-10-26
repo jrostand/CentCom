@@ -3,6 +3,7 @@
 
 // Local includes
 @import 'colors';
+@import 'defaults';
 @import 'forecast_font';
 
 @import 'admin';
@@ -19,12 +20,10 @@
 body {
   background: $base00;
   color: $base07;
-}
+  padding-top: 20px;
 
-.container:not(.ui) {
-  padding: 3%;
-}
-
-.ui.error {
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-around;
 }
