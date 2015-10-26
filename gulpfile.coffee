@@ -1,5 +1,6 @@
 gulp = require 'gulp'
 
+babel = require 'gulp-babel'
 bowerFiles = require 'main-bower-files'
 coffee = require 'gulp-coffee'
 coffeeLint = require 'gulp-coffeelint'
@@ -17,6 +18,7 @@ sources =
   coffee:
     app: 'assets/js/*.coffee'
     lib: 'assets/js/lib/*.coffee'
+  js: ['assets/js/components/*.js', 'assets/js/*.js']
   fonts: 'assets/fonts/*'
   scss: 'assets/css/*.scss'
 
@@ -45,6 +47,12 @@ gulp.task 'coffee', ->
     .pipe(concat('all.js'))
     .pipe(gulp.dest build.js)
 
+gulp.task 'js', ->
+  gulp.src(sources.js)
+    .pipe(babel())
+    .pipe(concat('test.js'))
+    .pipe(gulp.dest build.js)
+
 gulp.task 'fonts', ->
   gulp.src(sources.fonts)
     .pipe(gulp.dest build.fonts)
@@ -58,6 +66,7 @@ gulp.task 'watch', ->
   gulp.watch 'bower_components/', ['bower']
   gulp.watch [sources.coffee.app, sources.coffee.lib], ['coffee']
   gulp.watch sources.fonts, ['fonts']
+  gulp.watch sources.js, ['js']
   gulp.watch sources.scss, ['sass']
 
-gulp.task 'default', ['bower', 'sass', 'fonts', 'coffee']
+gulp.task 'default', ['bower', 'sass', 'fonts', 'coffee', 'js']
