@@ -4,7 +4,7 @@ module ForecastFormatter
 
     {
       currentIcon: icon_classes(current.icon),
-      currentTemp: current.temperature.round(1),
+      currentTemp: current.temperature.round(1).to_s,
       currentPressure: current.pressure.round,
       currentWind: {
         speed: current.windSpeed,
@@ -21,8 +21,8 @@ module ForecastFormatter
       {
         label: Time.at(day.time).strftime('%a').downcase,
         icon: icon_classes(day.icon),
-        min: day.temperatureMin.round(1),
-        max: day.temperatureMax.round(1)
+        min: day.temperatureMin.round(1).to_s,
+        max: day.temperatureMax.round(1).to_s
       }
     end
   end

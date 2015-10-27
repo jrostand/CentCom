@@ -27,7 +27,7 @@ var Weather = React.createClass({
   },
 
   hasCurrentForecast: function() {
-    var expiration = new Date(parseInt(localStorage.forecast_expiry)).getTime();
+    var expiration = parseInt(localStorage.forecast_expiry);
 
     if (isNaN(expiration) || Date.now() >= expiration) {
       return false;
@@ -51,13 +51,16 @@ var Weather = React.createClass({
     var forecast = this.state.forecast;
 
     return <div className="weather">
-      <WeatherIcon icon={forecast.currentIcon} />
-      <CurrentTemp temp={forecast.currentTemp} />
+      <div className="current-conditions">
+        <WeatherIcon icon={forecast.currentIcon} />
+        <CurrentTemp temp={forecast.currentTemp} />
+      </div>
+
+      <ForecastTable days={forecast.forecast} />
     </div>;
   }
 });
 
 /*
       <WindGauge wind={forecast.currentWind} />
-      <ForecastTable data={forecast} />
 */
