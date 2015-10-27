@@ -8,11 +8,7 @@ var Weather = React.createClass({
   },
 
   componentDidMount: function() {
-    if (this.hasCurrentForecast()) {
-      this.setState({ forecast: JSON.parse(localStorage.forecast) });
-    } else {
-      this.fetchWeather();
-    }
+    this.fetchWeather();
 
     // refresh every minute
     this.fetchTimer = setInterval(this.fetchWeather, 1000 * 60);
@@ -23,22 +19,28 @@ var Weather = React.createClass({
   },
 
   fetchWeather: function() {
-    $.ajax({
-      url: '/api/weather',
-      dataType: 'json',
-      cache: true,
-      success: function(data) {
-        this.setState({ forecast: data });
-        this.updateStoredForecast(data);
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error('/api/stories', status, err.toString());
-      }.bind(this)
-    });
+    if (this.hasCurrentForecast()) {
+      this.setState({ forecast: JSON.parse(localStorage.forecast) });
+    } else {
+
+      $.ajax({
+        url: '/api/weather',
+        dataType: 'json',
+        cache: true,
+        success: function(data) {
+          this.setState({ forecast: data });
+          this.updateStoredForecast(data);
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error('/api/stories', status, err.toString());
+        }.bind(this)
+      });
+    }
   },
 
   hasCurrentForecast: function() {
     var expiration = parseInt(localStorage.forecast_expiry);
+
 
     if (isNaN(expiration) || Date.now() >= expiration) {
       return false;
@@ -48,8 +50,8 @@ var Weather = React.createClass({
   },
 
   updateStoredForecast: function(forecast) {
-    // set a 'stale' time of 10 minutes
-    var nextExpiration = new Date(Date.now() + (10 * 60 * 1000)).getTime();
+    // set a 'stale' time of 5 minutes
+    var nextExpiration = new Date(Date.now() + (5 * 60 * 1000)).getTime();
 
     localStorage.forecast = JSON.stringify(forecast);
     localStorage.forecast_expiry = nextExpiration;
