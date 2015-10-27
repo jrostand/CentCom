@@ -37,6 +37,9 @@ var RssReader = React.createClass({
 
   componentDidMount: function() {
     this.fetchStories();
+
+    // refresh every minute
+    setInterval(this.fetchStories, 1000 * 60);
   },
 
   render: function() {
