@@ -27,7 +27,7 @@ utcDigi = new DigitalClock(
   utc: true
 )
 
-weather = new Weather()
+# weather = new Weather()
 
 updateClocks = ->
   calendar.update()
@@ -39,6 +39,6 @@ updateClocks = ->
 $ ->
   $('.admin-bar .right-links').hide() if document.location.pathname is '/'
 
-  setInterval weather.update, 1000 * 60 * 5
+  # setInterval weather.update, 1000 * 60 * 5
 
   setInterval updateClocks, 5000
