@@ -3,12 +3,23 @@ var Weather = React.createClass({
     return { forecast: {} };
   },
 
-  updateStoredForecast: function(forecast) {
-    // set a 'stale' time of 10 minutes
-    var nextExpiration = new Date(Date.now() + (10 * 60 * 1000)).getTime();
+  componentWillMount: function() {
+    this.fetchTimer = null;
+  },
 
-    localStorage.forecast = JSON.stringify(forecast);
-    localStorage.forecast_expiry = nextExpiration;
+  componentDidMount: function() {
+    if (this.hasCurrentForecast()) {
+      this.setState({ forecast: JSON.parse(localStorage.forecast) });
+    } else {
+      this.fetchWeather();
+    }
+
+    // refresh every minute
+    this.fetchTimer = setInterval(this.fetchWeather, 1000 * 60);
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.fetchTimer);
   },
 
   fetchWeather: function() {
@@ -36,23 +47,12 @@ var Weather = React.createClass({
     }
   },
 
-  componentWillMount: function() {
-    this.fetchTimer = null;
-  },
+  updateStoredForecast: function(forecast) {
+    // set a 'stale' time of 10 minutes
+    var nextExpiration = new Date(Date.now() + (10 * 60 * 1000)).getTime();
 
-  componentDidMount: function() {
-    if (this.hasCurrentForecast()) {
-      this.setState({ forecast: JSON.parse(localStorage.forecast) });
-    } else {
-      this.fetchWeather();
-    }
-
-    // refresh every minute
-    this.fetchTimer = setInterval(this.fetchWeather, 1000 * 60);
-  },
-
-  componentWillUnmount: function() {
-    clearInterval(this.fetchTimer);
+    localStorage.forecast = JSON.stringify(forecast);
+    localStorage.forecast_expiry = nextExpiration;
   },
 
   render: function() {

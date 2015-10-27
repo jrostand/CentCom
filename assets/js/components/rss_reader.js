@@ -3,6 +3,21 @@ var RssReader = React.createClass({
     return {stories: []};
   },
 
+  componentWillMount: function() {
+    this.fetchTimer = null;
+  },
+
+  componentDidMount: function() {
+    this.fetchStories();
+
+    // refresh every minute
+    this.fetchTimer = setInterval(this.fetchStories, 1000 * 60);
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.fetchTimer);
+  },
+
   handleRefresh: function(event) {
     event.preventDefault();
 
@@ -33,21 +48,6 @@ var RssReader = React.createClass({
         console.error('/api/stories', status, err.toString());
       }.bind(this)
     });
-  },
-
-  componentWillMount: function() {
-    this.fetchTimer = null;
-  },
-
-  componentDidMount: function() {
-    this.fetchStories();
-
-    // refresh every minute
-    this.fetchTimer = setInterval(this.fetchStories, 1000 * 60);
-  },
-
-  componentWillUnmount: function() {
-    clearInterval(this.fetchTimer);
   },
 
   render: function() {
