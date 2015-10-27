@@ -36,6 +36,10 @@ var Weather = React.createClass({
     }
   },
 
+  componentWillMount: function() {
+    this.fetchTimer = null;
+  },
+
   componentDidMount: function() {
     if (this.hasCurrentForecast()) {
       this.setState({ forecast: JSON.parse(localStorage.forecast) });
@@ -44,7 +48,11 @@ var Weather = React.createClass({
     }
 
     // refresh every minute
-    setInterval(this.fetchWeather, 1000 * 60);
+    this.fetchTimer = setInterval(this.fetchWeather, 1000 * 60);
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.fetchTimer);
   },
 
   render: function() {

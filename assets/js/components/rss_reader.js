@@ -35,11 +35,19 @@ var RssReader = React.createClass({
     });
   },
 
+  componentWillMount: function() {
+    this.fetchTimer = null;
+  },
+
   componentDidMount: function() {
     this.fetchStories();
 
     // refresh every minute
-    setInterval(this.fetchStories, 1000 * 60);
+    this.fetchTimer = setInterval(this.fetchStories, 1000 * 60);
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.fetchTimer);
   },
 
   render: function() {
