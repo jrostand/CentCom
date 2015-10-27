@@ -4,12 +4,23 @@ $weather-box-size: 120px;
   border: 2px solid $base16-violet;
   width: $single-module-width;
 
-  .weather {
+  .forecast-icon {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .current-conditions {
     display: flex;
     width: 100%;
 
     p {
       margin-bottom: 0;
+    }
+
+    .forecast-icon {
+      font-size: $weather-box-size;
+      line-height: $weather-box-size;
     }
 
     .weather-box {
@@ -18,14 +29,6 @@ $weather-box-size: 120px;
       text-align: center;
       width: 33%;
     }
-  }
-
-  .forecast-icon {
-    font-size: $weather-box-size;
-    line-height: $weather-box-size;
-    list-style: none;
-    margin: 0;
-    padding: 0;
   }
 
   .current-temp {
@@ -37,6 +40,53 @@ $weather-box-size: 120px;
 
     p {
       font-size: 48px;
+    }
+  }
+
+  .forecast-table {
+    margin-top: 10px;
+
+    .forecast-row {
+      display: flex;
+
+      font-size: 20px;
+      line-height: 20px;
+      margin: 0 5% 10px;
+
+      span,
+      div {
+        flex: 0 1 auto;
+      }
+
+      .current-icon {
+        width: 25%;
+      }
+
+      .day {
+        text-align: center;
+        width: 25%;
+      }
+
+      .min-temp,
+      .max-temp{
+        text-align: right;
+        width: 20%;
+      }
+
+      .max-temp {
+        color: $base16-red;
+      }
+
+      .min-temp {
+        color: $base16-blue;
+      }
+
+      .forecast-icon {
+        font-size: 30px;
+        line-height: 30px;
+        margin-top: -5px;
+        text-align: center;
+      }
     }
   }
 }
