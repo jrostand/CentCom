@@ -32,7 +32,7 @@ module ForecastFormatter
       when 'clear-day' then %w(icon-sun)
       when 'clear-night' then %w(icon-moon)
       when 'cloudy' then %w(icon-cloud)
-      when 'fog' then %w(icon-basecloud icon-mist)
+      when 'fog' then %w(icon-mist)
       when 'hail' then %w(icon-hail)
       when 'partly-cloudy-day' then %w(icon-cloud icon-sunny)
       when 'partly-cloudy-night' then %w(icon-cloud icon-night)
