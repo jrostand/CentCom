@@ -8,7 +8,12 @@ body {
 }
 
 a {
+  color: $base07;
   text-decoration: none;
+
+  &:hover {
+    color: $base16-blue;
+  }
 }
 
 h1,
@@ -56,6 +61,11 @@ h5:last-child {
   margin-bottom: 0;
 }
 
+input,
+select {
+  color: $base00;
+}
+
 p {
   margin: 0 0 1em;
   line-height: 1.5em;
@@ -67,4 +77,10 @@ p:first-child {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }

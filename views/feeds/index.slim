@@ -1,24 +1,16 @@
-.column.feeds.index
+.module.feeds.index
   h1 Feeds
   - if @categories.empty?
     h2 No feeds
   - else
     - @categories.each do |category|
-      .ui.inverted.list
-        .item: .content
-          .header: h3= category.name
-          ul.no-bullets
-            - if category.feeds.empty?
-              li No feeds
-            - else
-              - category.feeds.each do |feed|
-                li: a(href="/feeds/#{feed.id}/edit")=< feed.name
+      h3= category.name
+      ul.no-bullets
+        - if category.feeds.empty?
+          li No feeds
+        - else
+          - category.feeds.each do |feed|
+            li: a(href="/feeds/#{feed.id}/edit")=< feed.name
 
   .actions
-    a.ui.button.new-button(href="/feeds/new") New
-
-.spacer.column
-
-.spacer.column
-
-.spacer.column
+    a.button.new-button(href="/feeds/new") New
