@@ -1,13 +1,26 @@
-$single-module-width: 23%;
+$single-module-width: 23.5%;
 $double-module-width: 48%;
+
+*:not(i) {
+  font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
+}
 
 html {
   font-size: 14px;
 }
 
 body {
+  background: $base00;
+  color: $base07;
   margin: 0;
   padding: 0;
+
+  padding-top: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-around;
 }
 
 a {

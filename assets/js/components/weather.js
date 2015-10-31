@@ -41,7 +41,6 @@ var Weather = React.createClass({
   hasCurrentForecast: function() {
     var expiration = parseInt(localStorage.forecast_expiry);
 
-
     if (isNaN(expiration) || Date.now() >= expiration) {
       return false;
     } else {

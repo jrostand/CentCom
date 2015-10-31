@@ -1,0 +1,42 @@
+#timedate-module {
+  border: 2px solid $base16-orange;
+  width: $single-module-width;
+
+  .time-date {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .calendar {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+
+    .date {
+      color: $base16-yellow;
+    }
+
+    .weekday {
+      color: $base16-blue;
+    }
+  }
+
+  .clock {
+    flex: 0 1 auto;
+
+    font-size: 3.5rem;
+    margin-top: 5px;
+    text-align: center;
+    width: 50%;
+
+    &.local {
+      color: $base16-green;
+    }
+
+    &.utc {
+      color: $base16-red;
+    }
+  }
+}
