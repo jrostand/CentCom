@@ -14,7 +14,7 @@ var WeatherIcon = React.createClass({
   },
 
   render: function() {
-    return <div className="current-icon weather-box">
+    return <div className="current-icon weather-box" title={this.props.summary}>
       <ul className="forecast-icon">
         {this.iconParts()}
       </ul>

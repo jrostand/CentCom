@@ -61,7 +61,10 @@ var Weather = React.createClass({
 
     return <div className="weather">
       <div className="current-conditions">
-        <WeatherIcon icon={forecast.currentIcon} />
+        <WeatherIcon
+          icon={forecast.currentIcon}
+          summary={forecast.currentSummary}
+        />
         <CurrentTemp temp={forecast.currentTemp} />
       </div>
 
