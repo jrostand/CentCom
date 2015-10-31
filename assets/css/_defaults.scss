@@ -1,3 +1,6 @@
+$single-module-width: 23%;
+$double-module-width: 48%;
+
 html {
   font-size: 14px;
 }
@@ -83,4 +86,9 @@ p:last-child {
   border: none;
   border-radius: 5px;
   padding: 5px;
+}
+
+.module {
+  margin: 0 0 0 1%;
+  flex: 0 1 auto;
 }

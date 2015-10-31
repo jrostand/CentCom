@@ -1,6 +1,3 @@
-$single-module-width: 23%;
-$double-module-width: 48%;
-
 .clocks {
   max-height: 290px;
 
@@ -29,9 +26,4 @@ $double-module-width: 48%;
   .utc-time {
     color: $base16-red;
   }
-}
-
-.module {
-  margin: 0 0 0 1%;
-  flex: 0 1 auto;
 }
