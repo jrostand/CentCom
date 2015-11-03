@@ -2,7 +2,11 @@ var LineChart = React.createClass({
   componentDidMount: function() {
     var context = document.getElementById(this.props.chartId).getContext('2d');
 
-    new Chart(context).Line(this.props.chartData, this.props.chartOptions);
+    this.chart = new Chart(context).Line(this.props.chartData, this.props.chartOptions);
+  },
+
+  componentDidUpdate: function() {
+    this.chart.update();
   },
 
   render: function() {

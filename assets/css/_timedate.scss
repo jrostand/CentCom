@@ -1,6 +1,5 @@
 #timedate-module {
   border: 2px solid $base16-orange;
-  width: $single-module-width;
 
   .time-date {
     display: flex;
@@ -39,4 +38,14 @@
       color: $base16-red;
     }
   }
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+}
+
+#chart-module {
+  border: 2px solid $base16-blue;
+  padding: 5px auto;
 }

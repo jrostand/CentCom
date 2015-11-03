@@ -103,5 +103,7 @@ p:last-child {
 
 .module {
   margin: 0 0 0 1%;
+  width: $single-module-width;
+
   flex: 0 1 auto;
 }

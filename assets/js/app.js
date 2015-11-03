@@ -12,3 +12,8 @@ ReactDOM.render(
   <TimeDate />,
   document.getElementById('timedate-module')
 );
+
+ReactDOM.render(
+  <WeightChart />,
+  document.getElementById('weight-module')
+);
