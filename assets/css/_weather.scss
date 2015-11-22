@@ -3,12 +3,6 @@ $weather-box-size: 120px;
 #weather-module {
   border: 2px solid $base16-violet;
 
-  .forecast-icon {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   .current-conditions {
     display: flex;
     width: 100%;
@@ -17,7 +11,7 @@ $weather-box-size: 120px;
       margin-bottom: 0;
     }
 
-    .forecast-icon {
+    .current-icon {
       font-size: $weather-box-size;
       line-height: $weather-box-size;
     }
@@ -58,6 +52,9 @@ $weather-box-size: 120px;
       }
 
       .current-icon {
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center;
         width: 25%;
       }
 
@@ -78,13 +75,6 @@ $weather-box-size: 120px;
 
       .min-temp {
         color: $base16-blue;
-      }
-
-      .forecast-icon {
-        font-size: 30px;
-        line-height: 30px;
-        margin-top: -5px;
-        text-align: center;
       }
     }
   }

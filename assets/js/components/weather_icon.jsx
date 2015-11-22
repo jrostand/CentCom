@@ -1,23 +1,17 @@
 var WeatherIcon = React.createClass({
   getDefaultProps: function() {
     return {
-      icon: ['icon-sun']
+      icon: 'clear-day'
     };
   },
 
-  iconParts: function() {
-    var parts = this.props.icon.map(function(klass) {
-      return <li key={klass} className={klass}></li>;
-    });
-
-    return parts;
+  iconClass: function() {
+    return "wi wi-forecast-io-" + this.props.icon;
   },
 
   render: function() {
-    return <div className="current-icon weather-box" title={this.props.summary}>
-      <ul className="forecast-icon">
-        {this.iconParts()}
-      </ul>
+    return <div className="current-icon weather-box">
+      <i className={this.iconClass()} title={this.props.summary}></i>
     </div>;
   }
 });
