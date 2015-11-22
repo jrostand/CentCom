@@ -21,3 +21,5 @@ var WeatherIcon = React.createClass({
     </div>;
   }
 });
+
+module.exports = WeatherIcon;

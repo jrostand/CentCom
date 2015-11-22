@@ -1,3 +1,5 @@
+var WeatherIcon = require('./weather_icon.jsx');
+
 var ForecastRow = React.createClass({
   render: function() {
     return <div className="forecast-row">
@@ -11,3 +13,5 @@ var ForecastRow = React.createClass({
     </div>;
   }
 });
+
+module.exports = ForecastRow;

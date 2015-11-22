@@ -9,3 +9,5 @@ var CurrentTemp = React.createClass({
     </div>
   }
 });
+
+module.exports = CurrentTemp;

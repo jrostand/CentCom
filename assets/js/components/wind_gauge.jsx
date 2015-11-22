@@ -3,3 +3,5 @@ var WindGauge = React.createClass({
     return <div className="wind-gauge weather-box"></div>;
   }
 });
+
+module.exports = WindGauge;

@@ -1,3 +1,5 @@
+var RssItem = require('./rss_item.jsx');
+
 var RssReader = React.createClass({
   getInitialState: function() {
     return {stories: []};
@@ -84,3 +86,5 @@ var RssReader = React.createClass({
     </div>;
   }
 });
+
+module.exports = RssReader;

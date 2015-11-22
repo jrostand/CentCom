@@ -36,3 +36,5 @@ var RssItem = React.createClass({
     </div>;
   }
 });
+
+module.exports = RssItem;

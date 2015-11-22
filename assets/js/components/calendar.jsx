@@ -49,3 +49,5 @@ var Calendar = React.createClass({
     </p>;
   }
 });
+
+module.exports = Calendar;

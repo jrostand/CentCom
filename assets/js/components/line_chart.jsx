@@ -1,3 +1,5 @@
+var Chart = require('chart.js');
+
 var LineChart = React.createClass({
   componentDidMount: function() {
     var context = document.getElementById(this.props.chartId).getContext('2d');
@@ -15,3 +17,5 @@ var LineChart = React.createClass({
     </div>;
   }
 });
+
+module.exports = LineChart;

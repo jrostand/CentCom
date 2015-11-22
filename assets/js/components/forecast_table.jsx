@@ -1,3 +1,5 @@
+var ForecastRow = require('./forecast_row.jsx');
+
 var ForecastTable = React.createClass({
   getDefaultProps: function() {
     return { days: [] };
@@ -13,3 +15,5 @@ var ForecastTable = React.createClass({
     </div>;
   }
 });
+
+module.exports = ForecastTable;

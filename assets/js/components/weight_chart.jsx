@@ -1,3 +1,5 @@
+var LineChart = require('./line_chart.jsx');
+
 var WeightChart = React.createClass({
   getInitialState: function() {
     return {
@@ -88,3 +90,5 @@ var WeightChart = React.createClass({
     />;
   }
 });
+
+module.exports = WeightChart;

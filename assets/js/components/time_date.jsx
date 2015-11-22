@@ -1,3 +1,6 @@
+var Calendar = require('./calendar.jsx'),
+    Clock = require('./clock.jsx');
+
 var TimeDate = React.createClass({
   render: function() {
     return <div className="time-date">
@@ -7,3 +10,5 @@ var TimeDate = React.createClass({
     </div>;
   }
 });
+
+module.exports = TimeDate;

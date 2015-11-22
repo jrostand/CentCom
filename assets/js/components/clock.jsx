@@ -51,3 +51,5 @@ var Clock = React.createClass({
     </div>;
   }
 });
+
+module.exports = Clock;
