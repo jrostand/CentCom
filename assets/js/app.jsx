@@ -7,8 +7,8 @@ require('../css/application.scss');
 var ReactDOM = require('react-dom'),
     RssReader = require('./components/rss_reader.jsx'),
     TimeDate = require('./components/time_date.jsx'),
-    Weather = require('./components/weather.jsx');
-// WeightChart = require('./components/weight_chart.jsx');
+    Weather = require('./components/weather.jsx'),
+    WeightChart = require('./components/weight_chart.jsx');
 
 ReactDOM.render(
   <RssReader />,
@@ -25,9 +25,7 @@ ReactDOM.render(
   document.getElementById('timedate-module')
 );
 
-/*
 ReactDOM.render(
   <WeightChart />,
   document.getElementById('weight-module')
 );
-*/

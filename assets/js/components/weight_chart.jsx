@@ -1,4 +1,4 @@
-var LineChart = require('./line_chart.jsx');
+var LineChart = require('react-chartjs').Line;
 
 var WeightChart = React.createClass({
   getInitialState: function() {
@@ -84,9 +84,9 @@ var WeightChart = React.createClass({
 
   render: function() {
     return <LineChart
-      chartId='weight-chart'
-      chartData={this.state.chart.data}
-      chartOptions={this.state.chart.options}
+      data={this.state.chart.data}
+      options={this.state.chart.options}
+      redraw
     />;
   }
 });
