@@ -12,6 +12,7 @@ $weather-box-size: 120px;
     }
 
     .current-icon {
+      color: $base16-blue;
       font-size: $weather-box-size;
       line-height: $weather-box-size;
     }
@@ -21,6 +22,18 @@ $weather-box-size: 120px;
       height: $weather-box-size;
       text-align: center;
       width: 33%;
+    }
+
+    .wind-gauge {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+
+      color: $base16-green;
+
+      .wi-wind {
+        font-size: 60px;
+      }
     }
   }
 

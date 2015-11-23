@@ -1,12 +1,6 @@
 var WeatherIcon = React.createClass({
-  getDefaultProps: function() {
-    return {
-      icon: 'clear-day'
-    };
-  },
-
   iconClass: function() {
-    return "wi wi-forecast-io-" + this.props.icon;
+    return 'wi wi-forecast-io-' + this.props.icon;
   },
 
   render: function() {

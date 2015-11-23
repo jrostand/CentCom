@@ -1,6 +1,7 @@
 var CurrentTemp = require('./current_temp.jsx'),
     ForecastTable = require('./forecast_table.jsx'),
-    WeatherIcon = require('./weather_icon.jsx');
+    WeatherIcon = require('./weather_icon.jsx'),
+    WindGauge = require('./wind_gauge.jsx');
 
 var Weather = React.createClass({
   getInitialState: function() {
@@ -70,15 +71,12 @@ var Weather = React.createClass({
           summary={forecast.currentSummary}
         />
         <CurrentTemp temp={forecast.currentTemp} />
+        <WindGauge wind={forecast.currentWind} />
       </div>
 
       <ForecastTable days={forecast.forecast} />
     </div>;
   }
 });
-
-/*
-      <WindGauge wind={forecast.currentWind} />
-*/
 
 module.exports = Weather;
