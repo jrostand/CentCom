@@ -12,12 +12,15 @@ $weather-box-size: 120px;
     }
 
     .current-icon {
+      align-items: center;
+      justify-content: center;
       color: $base16-blue;
-      font-size: $weather-box-size;
-      line-height: $weather-box-size;
+      font-size: $weather-box-size - 20px;
+      padding-top: 20px;
     }
 
     .weather-box {
+      display: flex;
       flex: 0 1 auto;
       height: $weather-box-size;
       text-align: center;
@@ -25,7 +28,6 @@ $weather-box-size: 120px;
     }
 
     .wind-gauge {
-      display: flex;
       flex-flow: column wrap;
       justify-content: center;
 
@@ -40,7 +42,6 @@ $weather-box-size: 120px;
   .current-temp {
     color: $base16-yellow;
 
-    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -50,7 +51,7 @@ $weather-box-size: 120px;
   }
 
   .forecast-table {
-    margin-top: 10px;
+    margin-top: -10px;
 
     .forecast-row {
       display: flex;
