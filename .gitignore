@@ -1,8 +1,6 @@
 .sass-cache/
 bower_components/
 node_modules/
-public/css/
-public/fonts/
-public/js/
+public/**
 tmp/
 config/settings.json

@@ -1,78 +1,94 @@
-@font-face {
-  font-family: 'weathericons';
-  src: url('/fonts/weathericons-regular-webfont.eot');
-  src: url('/fonts/weathericons-regular-webfont.eot#?iefix') format('embedded-opentype'),
-    url('/fonts/weathericons-regular-webfont.woff') format('woff'),
-    url('/fonts/weathericons-regular-webfont.ttf') format('truetype'),
-    url('/fonts/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+$weather-box-size: 120px;
 
-.weather {
-  p {
-    margin-bottom: 0;
-  }
+#weather-module {
+  border: 2px solid $base16-violet;
 
-  .currently {
-    .icon {
-      font-size: 110px;
-      line-height: 110px;
-    }
-  }
+  .current-conditions {
+    display: flex;
+    width: 100%;
 
-  .forecast-icon {
-    list-style: none;
-  }
-
-  .forecast {
-    .forecast-icon {
-      font-size: 40px;
+    p {
+      margin-bottom: 0;
     }
 
-    .temps {
-      font-size: 18px;
-    }
-  }
-
-  .numbers {
-    color: $base16-yellow;
-    padding-top: 10px;
-
-    .qnh {
-      padding-top: 10px;
-    }
-
-    .temp {
-      font-size: 25px;
-    }
-  }
-
-  .temps {
-    font-size: 25px;
-    padding-top: 10px;
-
-    .high {
-      color: $base16-red;
-    }
-
-    .low {
+    .current-icon {
       color: $base16-blue;
+      font-size: $weather-box-size;
+      line-height: $weather-box-size;
+    }
+
+    .weather-box {
+      flex: 0 1 auto;
+      height: $weather-box-size;
+      text-align: center;
+      width: 33%;
+    }
+
+    .wind-gauge {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+
+      color: $base16-green;
+
+      .wi-wind {
+        font-size: 60px;
+      }
     }
   }
 
-  .wind {
-    font-size: 16px;
-    padding-top: 11px;
+  .current-temp {
+    color: $base16-yellow;
 
-    .direction {
-      color: $base16-violet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 48px;
     }
+  }
 
-    .speed {
-      &.high { color: $base16-red; }
-      &.med { color: $base16-orange; }
-      &.low { color: $base16-green; }
+  .forecast-table {
+    margin-top: 10px;
+
+    .forecast-row {
+      display: flex;
+
+      font-size: 20px;
+      line-height: 20px;
+      margin: 0 5% 10px;
+
+      span,
+      div {
+        flex: 0 1 auto;
+      }
+
+      .current-icon {
+        font-size: 25px;
+        line-height: 30px;
+        text-align: center;
+        width: 25%;
+      }
+
+      .day {
+        text-align: center;
+        width: 25%;
+      }
+
+      .min-temp,
+      .max-temp{
+        text-align: right;
+        width: 20%;
+      }
+
+      .max-temp {
+        color: $base16-red;
+      }
+
+      .min-temp {
+        color: $base16-blue;
+      }
     }
   }
 }

@@ -3,28 +3,12 @@
 
 // Local includes
 @import 'colors';
-@import 'forecast_font';
+@import 'defaults';
 
 @import 'admin';
 @import 'admin_bar';
-@import 'dashboard';
 @import 'form';
 @import 'rss';
+@import 'timedate';
 @import 'weather';
-
-*:not(i) {
-  font-family: 'Source Code Pro', Helvetica, Arial, sans-serif !important;
-}
-
-body {
-  background: $base00;
-  color: $base07;
-}
-
-.container:not(.ui) {
-  padding: 3%;
-}
-
-.ui.error {
-  text-align: left;
-}
+@import 'weight';

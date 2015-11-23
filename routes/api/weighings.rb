@@ -1,3 +1,7 @@
+get '/api/weighings' do
+  render_json Weighing.recent.all.sort_by(&:id)
+end
+
 post '/api/weighings/:token' do |token|
   if token == CentCom::Settings.incoming_token
     begin

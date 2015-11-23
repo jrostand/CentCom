@@ -1,4 +1,9 @@
-.column.index {
+.index,
+.form {
+  padding: 10px;
+}
+
+.module.index {
   border: 2px solid $base16-blue;
 
   .list {
@@ -10,6 +15,6 @@
   }
 }
 
-.column.form {
+.module.form {
   border: 2px solid $base16-orange;
 }

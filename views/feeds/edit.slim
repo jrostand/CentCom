@@ -1,11 +1,5 @@
-.column.feeds.form.edit
+.module.feeds.form.edit
   h1 Edit Feed
 
-  form.ui.inverted.error.form(method='POST' action="/feeds/#{@feed.id}/edit")
+  form(method='POST' action="/feeds/#{@feed.id}/edit")
     == partial 'feeds/_form', locals: { feed: @feed, categories: @categories }
-
-.spacer.column
-
-.spacer.column
-
-.spacer.column

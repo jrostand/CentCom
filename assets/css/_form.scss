@@ -1,8 +1,32 @@
+.form {
+  input[type=text],
+  select {
+    margin-bottom: 5px;
+    min-width: 200px;
+    padding: 3px;
+  }
+
+  .error {
+    background-color: lighten($base16-red, 40%);
+    border: 1px solid $base16-red;
+    border-radius: 5px;
+    color: $base16-red;
+    margin-bottom: 10px;
+    padding: 5px;
+
+    .header {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+}
+
 .actions {
   text-align: right;
 
   .new-button {
     background-color: $base16-green;
+    color: $base01;
 
     &:focus {
       background-color: lighten($base16-green, 10%);
@@ -10,11 +34,13 @@
 
     &:hover {
       background-color: darken($base16-green, 10%);
+      color: $base06;
     }
   }
 
   .submit-button {
     background-color: $base16-blue;
+    color: $base01;
 
     &:focus {
       background-color: lighten($base16-blue, 10%);
@@ -22,6 +48,7 @@
 
     &:hover {
       background-color: darken($base16-blue, 10%);
+      color: $base06;
     }
   }
 }

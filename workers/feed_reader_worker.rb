@@ -30,6 +30,7 @@ class FeedReaderWorker
         author_id: author_id,
         title: article.title,
         content: expand_absolute_urls(content, feed.url),
+        summary: article.summary,
         published_at: article.published,
         url: article.url || feed.url
       )

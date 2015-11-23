@@ -1,4 +1,9 @@
-post '/api/stories/:id/edit' do |story_id|
+get '/api/stories' do
+  @stories = Story.unread.all
+  render_json @stories
+end
+
+patch '/api/stories/:id' do |story_id|
   story = Story[story_id]
 
   begin

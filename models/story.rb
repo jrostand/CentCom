@@ -15,4 +15,14 @@ class Story < Sequel::Model
   def_dataset_method :unread do
     eager(:feed).where(read: false).order(Sequel.desc(:published_at))
   end
+
+  def to_json(options = nil)
+    {
+      id: id,
+      feed: feed.name,
+      title: title,
+      content: summary,
+      url: url
+    }.to_json
+  end
 end
